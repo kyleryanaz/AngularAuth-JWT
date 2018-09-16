@@ -55,6 +55,15 @@ import { NoAccessComponent } from "./no-access/no-access.component";
     AuthService,
     AuthGuard,
     AdminAuthGuard,
+    AuthHttp,
+    provideAuth({
+      headerName: "Authorization",
+      headerPrefix: "bearer",
+      tokenName: "token",
+      tokenGetter: () => localStorage.getItem("id_token"),
+      globalHeaders: [{ "Content-Type": "application/json" }],
+      noJwtError: true
+    }),
     // For creating a mock back-end. You don't need these in a real app.
     fakeBackendProvider,
     MockBackend,
