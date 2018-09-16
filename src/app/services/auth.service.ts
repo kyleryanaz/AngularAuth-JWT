@@ -26,27 +26,20 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    // - This -
     return tokenNotExpired();
+  }
 
-    // - Does all of... -
+  get currentUser() {
+    let token = localStorage.getItem("token");
+    if (!token) {
+      return null;
+    } else {
+      // This:
+      // let jwtHelper = new JwtHelper();
+      // return jwtHelper.decodeToken(token);
 
-    // - This -
-    // let jwtHelper = new JwtHelper();
-    // // Retrieving token from local storage.
-    // let token = localStorage.getItem("token");
-    // if (!token) {
-    //   return false;
-    // } else {
-    //   // Collecting expiration date of said token.
-    //   let expirationDate = jwtHelper.getTokenExpirationDate(token);
-    //   // Determine whether or not the token is expired.
-    //   let isExpired = jwtHelper.isTokenExpired(token);
-
-    //   // console.log("Expiration", expirationDate);
-    //   // console.log("isExpired", isExpired);
-
-    //   return !isExpired;
-    // }
+      // becomes this:
+      return new JwtHelper().decodeToken(token);
+    }
   }
 }
