@@ -13,7 +13,10 @@ export function fakeBackendFactory(
 ) {
   // - Admin Token -
   let token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik1vc2ggSGFtZWRhbmkiLCJhZG1pbiI6dHJ1ZX0.iy8az1ZDe-_hS8GLDKsQKgPHvWpHl0zkQBqy1QIPOkA";
+    // Kyle Token
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikt5bGUgUnlhbiIsImFkbWluIjp0cnVlfQ.TyofINicNTKXiKKx92xtcClxqgYI6WZKuDjjizbbpNs";
+  // Mosh Token
+  // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik1vc2ggSGFtZWRhbmkiLCJhZG1pbiI6dHJ1ZX0.iy8az1ZDe-_hS8GLDKsQKgPHvWpHl0zkQBqy1QIPOkA";
 
   // - Regular Token -
   // let token =
@@ -32,7 +35,7 @@ export function fakeBackendFactory(
       ) {
         let body = JSON.parse(connection.request.getBody());
 
-        if (body.email === "mosh@domain.com" && body.password === "1234") {
+        if (body.email === "kyle@test.com" && body.password === "123456") {
           connection.mockRespond(
             new Response(
               new ResponseOptions({
