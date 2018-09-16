@@ -1,3 +1,4 @@
+import { AdminAuthGuard } from "./services/admin-auth-guard.service";
 import {
   AuthHttp,
   AUTH_PROVIDERS,
@@ -42,7 +43,7 @@ import { NoAccessComponent } from "./no-access/no-access.component";
       {
         path: "admin",
         component: AdminComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard, AdminAuthGuard]
       },
       { path: "login", component: LoginComponent },
       { path: "no-access", component: NoAccessComponent }
@@ -53,6 +54,7 @@ import { NoAccessComponent } from "./no-access/no-access.component";
 
     AuthService,
     AuthGuard,
+    AdminAuthGuard,
     // For creating a mock back-end. You don't need these in a real app.
     fakeBackendProvider,
     MockBackend,
